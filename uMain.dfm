@@ -1,9 +1,9 @@
 object fMain: TfMain
   Left = 0
   Top = 0
-  Caption = 'fMain'
-  ClientHeight = 201
-  ClientWidth = 447
+  Caption = 'Webcam Capturer'
+  ClientHeight = 490
+  ClientWidth = 656
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,6 +11,90 @@ object fMain: TfMain
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object gbLivePreview: TGroupBox
+    Left = 8
+    Top = 8
+    Width = 353
+    Height = 281
+    Caption = 'Live preview'
+    TabOrder = 0
+    object liveImage: TImage
+      Left = 14
+      Top = 24
+      Width = 320
+      Height = 240
+      Proportional = True
+    end
+  end
+  object gbPreviewOptions: TGroupBox
+    Left = 367
+    Top = 8
+    Width = 138
+    Height = 281
+    Caption = 'Device options'
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 3
+      Top = 24
+      Width = 36
+      Height = 13
+      Caption = 'Device:'
+    end
+    object btnConnect: TButton
+      Left = 3
+      Top = 70
+      Width = 132
+      Height = 25
+      Caption = 'Connect to webcam'
+      TabOrder = 0
+      OnClick = btnConnectClick
+    end
+    object btnDisconnect: TButton
+      Left = 3
+      Top = 101
+      Width = 132
+      Height = 25
+      Caption = 'Disconnect from webcam'
+      TabOrder = 1
+      OnClick = btnDisconnectClick
+    end
+    object btnImageOptions: TButton
+      Left = 3
+      Top = 168
+      Width = 132
+      Height = 25
+      Caption = 'Image options'
+      TabOrder = 2
+      OnClick = btnImageOptionsClick
+    end
+    object btnVideoOptions: TButton
+      Left = 3
+      Top = 199
+      Width = 132
+      Height = 25
+      Caption = 'Video options'
+      TabOrder = 3
+      OnClick = btnVideoOptionsClick
+    end
+    object cbListDevices: TComboBox
+      Left = 3
+      Top = 43
+      Width = 132
+      Height = 21
+      Style = csDropDownList
+      TabOrder = 4
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 8
+    Top = 295
+    Width = 494
+    Height = 105
+    Caption = 'GroupBox1'
+    TabOrder = 2
+  end
 end

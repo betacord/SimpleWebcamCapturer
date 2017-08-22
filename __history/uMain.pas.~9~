@@ -1,0 +1,59 @@
+unit uMain;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vfw, VFrames, Vcl.ExtCtrls, Vcl.StdCtrls;
+
+type
+  TfMain = class(TForm)
+    liveImage: TImage;
+    gbLivePreview: TGroupBox;
+    gbPreviewOptions: TGroupBox;
+    btnConnect: TButton;
+    btnDisconnect: TButton;
+    btnImageOptions: TButton;
+    btnVideoOptions: TButton;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnConnectClick(Sender: TObject);
+    procedure btnDisconnectClick(Sender: TObject);
+  private
+    a_Video: TVideoImage;
+  public
+    { Public declarations }
+  end;
+
+var
+  fMain: TfMain;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfMain.btnConnectClick(Sender: TObject);
+begin
+  a_Video.VideoStart(nil);
+end;
+
+procedure TfMain.btnDisconnectClick(Sender: TObject);
+begin
+  a_Video.VideoStop;
+end;
+
+procedure TfMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FreeAndNil(a_Video);
+end;
+
+procedure TfMain.FormCreate(Sender: TObject);
+begin
+  a_Video := TVideoImage.Create;
+  a_Video.SetDisplayCanvas(liveImage.Canvas);
+end;
+
+end.

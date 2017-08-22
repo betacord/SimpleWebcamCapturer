@@ -1,0 +1,72 @@
+object fMain: TfMain
+  Left = 0
+  Top = 0
+  Caption = 'Webcam Capturer'
+  ClientHeight = 490
+  ClientWidth = 656
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object gbLivePreview: TGroupBox
+    Left = 8
+    Top = 8
+    Width = 353
+    Height = 281
+    Caption = 'Live preview'
+    TabOrder = 0
+    object liveImage: TImage
+      Left = 14
+      Top = 24
+      Width = 320
+      Height = 240
+    end
+  end
+  object gbPreviewOptions: TGroupBox
+    Left = 367
+    Top = 8
+    Width = 138
+    Height = 281
+    Caption = 'Preview options'
+    TabOrder = 1
+    object btnConnect: TButton
+      Left = 3
+      Top = 24
+      Width = 132
+      Height = 25
+      Caption = 'Connect to webcam'
+      TabOrder = 0
+    end
+    object btnDisconnect: TButton
+      Left = 3
+      Top = 55
+      Width = 132
+      Height = 25
+      Caption = 'Disconnect from webcam'
+      TabOrder = 1
+    end
+    object btnImageOptions: TButton
+      Left = 3
+      Top = 104
+      Width = 132
+      Height = 25
+      Caption = 'Image options'
+      TabOrder = 2
+    end
+    object btnVideoOptions: TButton
+      Left = 3
+      Top = 135
+      Width = 132
+      Height = 25
+      Caption = 'Video options'
+      TabOrder = 3
+    end
+  end
+end

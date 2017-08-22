@@ -1,0 +1,39 @@
+unit uMain;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vfw, VFrames, Vcl.ExtCtrls, Vcl.StdCtrls;
+
+type
+  TfMain = class(TForm)
+    liveImage: TImage;
+    gbLivePreview: TGroupBox;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    a_Video: TVideoImage;
+  public
+    { Public declarations }
+  end;
+
+var
+  fMain: TfMain;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FreeAndNil(a_Video);
+end;
+
+procedure TfMain.FormCreate(Sender: TObject);
+begin
+  a_Video := TVideoImage.Create;
+  a_Video.SetDisplayCanvas(liveImage.Canvas);
+end;
+
+end.
